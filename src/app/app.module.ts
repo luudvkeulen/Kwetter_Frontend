@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import { TweetComponent } from './tweet/tweet.component';
 import { UsersComponent } from './users/users.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { UsersComponent } from './users/users.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule.forRoot()
   ],
   providers: [],
