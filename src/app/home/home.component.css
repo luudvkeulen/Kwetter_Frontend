@@ -1,21 +1,6 @@
-.dashboard {
-  background: #343a40;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
-
-.profile-icon {
-  padding: 15px;
-}
-
 .profile-icon-image {
   max-width: 100%;
   width: auto;
   border-radius: 50%;
   border: 3px solid white;
-}
-
-ul {
-
 }
