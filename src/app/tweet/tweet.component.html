@@ -1,6 +1,7 @@
-<div class="bg-secondary p-3 text-light mb-3">
+<div class="bg-secondary pl-3 pt-3 text-light mb-3">
   <div>
-    <b>Name Surname</b> @Username
+    <b>Name Surname</b> @{{tweet.tweetedBy}}
   </div>
-  <p class="m-0">Message</p>
+  <p class="m-0">{{tweet.message}}</p>
+  <p class="text-right m-0 mb-1 mr-1">{{tweet.published | date:'yyyy-MM-dd HH:mm'}}</p>
 </div>

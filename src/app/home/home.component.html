@@ -15,10 +15,8 @@
     </div>
   </div>
   <div class="col col-md-9 col-sm-12">
-    <div class="tweets">
-      <app-tweet></app-tweet>
-      <app-tweet></app-tweet>
-      <app-tweet></app-tweet>
+    <div class="tweets" *ngFor="let tweet of tweets">
+      <app-tweet [tweet]="tweet"></app-tweet>
     </div>
   </div>
 </div>

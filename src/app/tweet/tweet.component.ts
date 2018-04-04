@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Tweet} from '../tweet';
 
 @Component({
   selector: 'app-tweet',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TweetComponent implements OnInit {
 
+  @Input() tweet: Tweet;
   constructor() { }
 
   ngOnInit() {
+    console.log(JSON.stringify(this.tweet));
   }
 
 }

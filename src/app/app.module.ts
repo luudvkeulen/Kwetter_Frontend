@@ -15,6 +15,7 @@ import {RegisterComponent} from './register/register.component';
 import {TokenInterceptor} from './token-interceptor';
 import {AuthService} from './auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AuthGuardService} from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
