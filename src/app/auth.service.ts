@@ -14,12 +14,12 @@ export class AuthService {
     })
   };
 
-  static getToken(): string {
+  getToken(): string {
     return localStorage.getItem('token');
   }
 
-  static isAuthenticated(): boolean {
-    const token = AuthService.getToken();
+  isAuthenticated(): boolean {
+    const token = this.getToken();
     return tokenNotExpired(null, token);
   }
 
@@ -30,6 +30,6 @@ export class AuthService {
     const user = new User(username, password);
     return this
       .http
-      .post('http://localhost:8080/JEA_Kwetter/api/login', user, {headers: this.httpOptions.headers, observe: 'response'});
+      .post('http://localhost:8080/Kwetter/api/login', user, {headers: this.httpOptions.headers, observe: 'response'});
   }
 }

@@ -12,7 +12,6 @@ export class TweetComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(JSON.stringify(this.tweet));
   }
 
 }

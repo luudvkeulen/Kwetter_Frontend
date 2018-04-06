@@ -1,6 +1,6 @@
 <div class="bg-secondary pl-3 pt-3 text-light mb-3">
   <div>
-    <b>Name Surname</b> @{{tweet.tweetedBy}}
+    <b>Name Surname</b> <a class="badge badge-light" href="{{tweet.tweetedBy_url}}">@{{tweet.tweetedByString}}</a>
   </div>
   <p class="m-0">{{tweet.message}}</p>
   <p class="text-right m-0 mb-1 mr-1">{{tweet.published | date:'yyyy-MM-dd HH:mm'}}</p>

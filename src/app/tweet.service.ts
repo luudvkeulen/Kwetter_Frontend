@@ -10,10 +10,10 @@ export class TweetService {
   constructor(private http: HttpClient) {
   }
 
-  getTimeLine(): Observable<Tweet[]> {
+  getTimeLine(offset: number, limit: number): Observable<Tweet[]> {
     return this
       .http
-      .get('http://localhost:8080/JEA_Kwetter/api/tweets')
+      .get('http://localhost:8080/Kwetter/api/user/timeline?offset=' + offset + '&limit=' + limit)
       .map(res => res as Tweet[]);
   }
 

@@ -9,10 +9,10 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (AuthService.isAuthenticated()) {
+    if (this.auth.isAuthenticated()) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${AuthService.getToken()}`,
+          Authorization: `${this.auth.getToken()}`,
         }
       });
     }

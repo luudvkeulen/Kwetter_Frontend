@@ -1,0 +1,11 @@
+.profile-icon-image {
+  max-width: 100%;
+  width: auto;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+a {
+  color: white;
+  text-decoration: inherit; /* no underline */
+}
