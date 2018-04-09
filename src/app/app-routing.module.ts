@@ -7,6 +7,7 @@ import {UsersComponent} from './users/users.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {AuthGuardService as AuthGuard} from './auth-guard.service';
+import {UserDetailComponent} from './user-detail/user-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -17,6 +18,10 @@ const appRoutes: Routes = [
   {
     path: 'users',
     component: UsersComponent
+  },
+  {
+    path: 'users/:username',
+    component: UserDetailComponent
   },
   {
     path: 'login',

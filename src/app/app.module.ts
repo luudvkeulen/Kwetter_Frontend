@@ -16,6 +16,7 @@ import {TokenInterceptor} from './token-interceptor';
 import {AuthGuardService} from './auth-guard.service';
 import { UserComponent } from './user/user.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {UserDetailComponent} from './user-detail/user-detail.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     UsersComponent,
     LoginComponent,
     RegisterComponent,
-    UserComponent
+    UserComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
