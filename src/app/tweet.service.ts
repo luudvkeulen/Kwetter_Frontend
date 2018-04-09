@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Tweet} from './tweet';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -15,6 +15,17 @@ export class TweetService {
       .http
       .get('http://localhost:8080/Kwetter/api/user/timeline?offset=' + offset + '&limit=' + limit)
       .map(res => res as Tweet[]);
+  }
+
+  tweet(tweet: Tweet): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this
+      .http
+      .put<Tweet>('http://localhost:8080/Kwetter/api/user/tweets', tweet, httpOptions);
   }
 
 }

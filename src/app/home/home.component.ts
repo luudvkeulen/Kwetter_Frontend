@@ -44,6 +44,10 @@ export class HomeComponent implements OnInit {
   }
 
   tweet(): void {
+    const newTweet = new Tweet(this.tweetText, null, null, null, null);
+    this.tweetService.tweet(newTweet).subscribe(res => {
+      this.tweets.unshift(res);
+    });
     this.tweetText = '';
     console.log(this.tweetText);
   }
