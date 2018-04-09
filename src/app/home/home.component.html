@@ -2,7 +2,7 @@
   <div class="col col-md-3 d-none d-sm-none d-md-block p-0">
     <div class="bg-secondary p-3 text-center text-light">
       <div class="p-3">
-        <img class="profile-icon-image" src="{{user.picture}}">
+        <img class="profile-icon-image" src="assets/{{user.picture}}">
       </div>
       <b>{{user.username}}</b>
     </div>
@@ -16,7 +16,7 @@
   </div>
   <div class="col col-md-9 col-sm-12">
     <form class="post-tweet bg-secondary p-3 p-3 text-light mb-3">
-      What is on your mind?<br/>
+      What's on your mind?<br/>
       <div class="tweet-wrapper">
         <label class="w-100 mb-0">
           <textarea class="form-control" rows="3" placeholder="Type your message here..." [(ngModel)]="tweetText" maxlength="128" name="tweet-text"></textarea>
