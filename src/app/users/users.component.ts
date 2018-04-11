@@ -9,16 +9,30 @@ import {UserService} from '../user.service';
 })
 export class UsersComponent implements OnInit {
 
-  users: Object[];
+  users: Object[] = [];
+  scrollDistance = 1;
+  loadAmount = 20;
+  searching = false;
 
   constructor(private userService: UserService) {
   }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(res => this.users = res);
+    this.onScroll();
   }
 
-  onSearchInput(event) {
-    console.log('input' + JSON.stringify(event));
+  onScroll() {
+    this.userService.getUsers(this.users.length, this.loadAmount).subscribe(res => this.users.push(...res));
+  }
+
+  onSearchInput(searchString: string) {
+    if (searchString.length < 3) {
+      if (this.searching) {
+        this.onScroll();
+      }
+      return;
+    }
+    this.searching = true;
+    this.userService.findUsers(searchString).subscribe(res => this.users = res);
   }
 }

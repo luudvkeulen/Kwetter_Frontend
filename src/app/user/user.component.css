@@ -5,7 +5,7 @@
   border: 3px solid white;
 }
 
-a {
+a.hastag {
   color: white;
   text-decoration: inherit; /* no underline */
 }

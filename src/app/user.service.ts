@@ -12,7 +12,11 @@ export class UserService {
     return this.http.get('http://localhost:8080/Kwetter/api/user');
   }
 
-  getUsers(): Observable<any> {
-    return this.http.get('http://localhost:8080/Kwetter/api/users');
+  getUsers(offset: number, limit: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/Kwetter/api/users?offset=${offset}&limit=${limit}`);
+  }
+
+  findUsers(searchString: string): Observable<any> {
+    return this.http.get(`http://localhost:8080/Kwetter/api/users/${searchString}`);
   }
 }
