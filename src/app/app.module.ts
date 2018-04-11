@@ -17,6 +17,7 @@ import {AuthGuardService} from './auth-guard.service';
 import { UserComponent } from './user/user.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {UserDetailComponent} from './user-detail/user-detail.component';
+import {LinkifyPipe} from './linkify.pipe';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {UserDetailComponent} from './user-detail/user-detail.component';
     LoginComponent,
     RegisterComponent,
     UserComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    LinkifyPipe
   ],
   imports: [
     BrowserModule,
