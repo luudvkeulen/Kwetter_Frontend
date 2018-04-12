@@ -1,7 +1,15 @@
-<div class="bg-secondary pl-3 pt-3 text-light mb-3">
-  <div>
-    <b>Name Surname</b> <a class="badge badge-light" href="{{tweet.tweetedBy_url}}">@{{tweet.tweetedByString}}</a>
+<div class="bg-secondary text-light mb-3">
+  <div class="pl-3 pt-3 pr-3">
+    <b>{{tweet.tweetedBy_fullname}}</b> <a class="badge badge-light" href="{{tweet.tweetedBy_url}}">@{{tweet.tweetedByString}}</a>
   </div>
-  <p class="m-0" [innerHtml]="tweet | linkify"></p>
-  <p class="text-right m-0 mb-1 mr-1">{{tweet.published | date:'yyyy-MM-dd HH:mm'}}</p>
+  <p class="m-0 pl-3 pr-3 mb-1" [innerHtml]="tweet | linkify"></p>
+  <hr class="m-0">
+  <div class="d-flex justify-content-between p-1">
+    <div class="d-flex">
+      <i [ngClass]="{'far': !tweet.hasBeenLiked, 'fas': tweet.hasBeenLiked}" class="far fa-heart mb-auto mt-auto ml-3"
+         (click)="like()"></i>
+      <p class="mb-0 pl-1">{{tweet.likes.length}} likes</p>
+    </div>
+    <p class="mb-0">{{tweet.published | date:'yyyy-MM-dd HH:mm'}}</p>
+  </div>
 </div>

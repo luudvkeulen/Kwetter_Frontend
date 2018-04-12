@@ -28,4 +28,16 @@ export class TweetService {
       .put<Tweet>('http://localhost:8080/Kwetter/api/user/tweets', tweet, httpOptions);
   }
 
+  like(tweet: Tweet): Observable<any> {
+    return this
+      .http
+      .put(`http://localhost:8080/Kwetter/api/user/tweets/${tweet.id}/like`, null);
+  }
+
+  unlike(tweet: Tweet): Observable<any> {
+    return this
+      .http
+      .put(`http://localhost:8080/Kwetter/api/user/tweets/${tweet.id}/unlike`, null);
+  }
+
 }

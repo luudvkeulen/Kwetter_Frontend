@@ -23,6 +23,7 @@ export class LinkifyPipe implements PipeTransform {
       const tagwithprefix = `#${tag}`;
       console.log(tagwithprefix);
       tweet.message = tweet.message.replace(tagwithprefix, '<a class="hashtag" href="tweets/$&">$&</a>');
+      tweet.message = tweet.message.replace('#', '');
     }
 
     return tweet.message;

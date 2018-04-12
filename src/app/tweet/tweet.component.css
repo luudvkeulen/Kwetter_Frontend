@@ -1,4 +1,12 @@
-.hashtag {
+a.hashtag {
   color: white;
   text-decoration: inherit; /* no underline */
+}
+
+a.hashtag:hover {
+  text-decoration: underline;
+}
+
+i:hover {
+  cursor: pointer;
 }
