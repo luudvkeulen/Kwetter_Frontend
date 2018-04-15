@@ -2,21 +2,24 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {UserService} from '../user.service';
 import {Tweet} from '../tweet';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.css'],
-  providers: [UserService]
+  providers: [UserService, AuthService]
 })
 export class UserDetailComponent implements OnInit {
 
   username: string;
   user = {};
   tweets: Tweet[];
+  isOwner = false;
 
   constructor(private route: ActivatedRoute,
-              private userService: UserService) {
+              private userService: UserService,
+              private authService: AuthService) {
     this.route.params.subscribe(params => this.username = params['username']);
   }
 
@@ -30,6 +33,11 @@ export class UserDetailComponent implements OnInit {
           });
         }
       });
+    }
+
+    const username = this.authService.getLoggedInUsername();
+    if (username === this.username) {
+      this.isOwner = true;
     }
   }
 }

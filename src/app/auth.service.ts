@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {tokenNotExpired} from 'angular2-jwt';
+import {JwtHelper, tokenNotExpired} from 'angular2-jwt';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from './user';
 import 'rxjs/add/operator/map';
@@ -24,6 +24,12 @@ export class AuthService {
   }
 
   constructor(private http: HttpClient) {
+  }
+
+  public getLoggedInUsername(): string {
+    const token = this.getToken();
+    const jwtHelper = new JwtHelper();
+    return jwtHelper.decodeToken(token).sub;
   }
 
   public login(username: string, password: string): Observable<any> {

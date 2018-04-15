@@ -1,11 +1,30 @@
 <div class="text-center">
   <img class="user-picture rounded-circle border" src="assets/{{user.picture}}">
   <h5 class="card-title mt-3">{{user.username}}</h5>
-  <ul class="card-text list-unstyled">
+  <ul class="card-text list-unstyled" *ngIf="!isOwner">
+    <li>First name: {{user.firstName}}</li>
+    <li>Last name: {{user.lastName}}</li>
     <li>Bio: {{user.bio}}</li>
     <li>Location: {{user.location}}</li>
     <li>Website: {{user.website}}</li>
   </ul>
+  <div class="card-text" *ngIf="isOwner">
+    <div class="form-group form-inline justify-content-center">
+      <label for="firstname" class="mr-1">First name:</label><input id="firstname" class="form-control" type="text" value="{{user.firstName}}">
+    </div>
+    <div class="form-group form-inline justify-content-center">
+      <label for="lastname" class="mr-1">Last name:</label><input id="lastname" class="form-control" type="text" value="{{user.lastName}}">
+    </div>
+    <div class="form-group form-inline justify-content-center">
+      <label for="bio" class="mr-1">Bio:</label><input id="bio" class="form-control" type="text" value="{{user.bio}}">
+    </div>
+    <div class="form-group form-inline justify-content-center">
+      <label for="location" class="mr-1">Location:</label><input id="location" class="form-control" type="text" value="{{user.location}}">
+    </div>
+    <div class="form-group form-inline justify-content-center">
+      <label for="website" class="mr-1">Website:</label><input id="website" class="form-control" type="text" value="{{user.website}}">
+    </div>
+  </div>
 </div>
 <div class="row text-center mt-3">
   <div class="col mr-1">
