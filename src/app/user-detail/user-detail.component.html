@@ -1,3 +1,26 @@
-<p>
-  user-detail works!
-</p>
+<div class="text-center">
+  <img class="user-picture rounded-circle border" src="assets/{{user.picture}}">
+  <h5 class="card-title mt-3">{{user.username}}</h5>
+  <ul class="card-text list-unstyled">
+    <li>Bio: {{user.bio}}</li>
+    <li>Location: {{user.location}}</li>
+    <li>Website: {{user.website}}</li>
+  </ul>
+</div>
+<div class="row text-center mt-3">
+  <div class="col mr-1">
+    <div class="card p-3">
+      <h5>Followers:</h5>
+      {{user.followers}}
+    </div>
+  </div>
+  <div class="col ml-1">
+    <div class="card p-3">
+      <h5>Following:</h5>
+      {{user.following}}
+    </div>
+  </div>
+</div>
+<div class="tweets mt-3" *ngFor="let tweet of tweets">
+  <app-tweet [tweet]="tweet"></app-tweet>
+</div>
