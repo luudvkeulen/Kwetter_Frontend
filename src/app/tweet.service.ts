@@ -3,11 +3,23 @@ import {Observable} from 'rxjs/Observable';
 import {Tweet} from './tweet';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import {WebsocketService} from './websocket.service';
+import {Subject} from 'rxjs/Subject';
+
+const TWEET_URL = 'ws://localhost:8080/Kwetter/tweets';
 
 @Injectable()
 export class TweetService {
 
-  constructor(private http: HttpClient) {
+  public tweets: Subject<Tweet>;
+
+  constructor(private http: HttpClient, private wsService: WebsocketService) {
+    this.tweets = <Subject<Tweet>>wsService
+      .connect(TWEET_URL)
+      .map((response: MessageEvent): Tweet => {
+        const data = JSON.parse(response.data);
+        return data;
+      });
   }
 
   getTimeLine(offset: number, limit: number): Observable<Tweet[]> {
